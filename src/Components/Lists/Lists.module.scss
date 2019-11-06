@@ -7,12 +7,19 @@
 	flex-wrap: wrap;
 	justify-content: center;
 
+	.listsWrap {
+		.up,.add,.down,.remove {
+			margin: .2rem;
+		}
+	}
 
 	.listWrapper {
 		margin: 0 3rem;
 		text-align: right;
 		position: relative;
 		display: inline-block;
+
+
 
 
 		.inputWrapper {
@@ -74,9 +81,7 @@
 				}
 			}
 
-			.up, .add, .remove {
-				margin: .2rem;
-			}
+
 
 			.remove {
 				margin-right: 0;

@@ -8,7 +8,10 @@ export const ButtonsGroup = () => {
 	return (
 		<>
 			<button className={s.up}>
-				↕
+				↑
+			</button>
+			<button className={s.down}>
+				↓
 			</button>
 			<button className={s.add}>
 				Add Sublist

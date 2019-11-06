@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 
 
 
-class App extends React.PureComponent {
+class App extends React.Component {
 
 	render() {
 
