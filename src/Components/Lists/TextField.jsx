@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import s from './Lists.module.scss';
 
-export const TextField = ({addNewField,numberArr}) => {
+export const TextField = () => {
 
 	let [description,setDescription] = useState(null);
 
@@ -20,8 +20,7 @@ export const TextField = ({addNewField,numberArr}) => {
 			showForm: false
 		};
 
-		addNewField({newField,numberArr});
-		setDescription(null)
+
 	};
 
 	return (
