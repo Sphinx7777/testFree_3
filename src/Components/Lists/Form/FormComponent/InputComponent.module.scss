@@ -1,0 +1,64 @@
+$placeholderColor: rgba(0, 0, 0, .4);
+;
+$placeholderColorError: rgba(255, 0, 0, 0.3);
+@mixin Placeholder($color) {
+	color: $color;
+	text-align: left;
+	font-size: 0.8rem;
+	padding: 0.5rem;
+}
+
+@mixin bRadius($br) {
+	border-radius: $br;
+	outline: none;
+}
+
+.inputLabel {
+	font-size: 0.8rem;
+	margin-bottom: 0.5rem;
+}
+
+.inputLabel.errorInputLabel {
+	color: red;
+}
+
+.inputField {
+	border: 1px solid black;
+	max-width: 100%;
+	height: 1.5rem;
+	margin-bottom: 0.5rem;
+
+	&:focus {
+		border: 1px solid blue;
+	}
+}
+
+.inputField.errorInputField {
+	border: 1px solid red;
+}
+
+
+input[type="tel"]::placeholder {
+	@include Placeholder($placeholderColor);
+}
+
+input[type="tel"].errorInputField::placeholder {
+	@include Placeholder($placeholderColorError);
+}
+
+input[type="email"]::placeholder {
+	@include Placeholder($placeholderColor);
+}
+
+input[type="email"].errorInputField::placeholder {
+	@include Placeholder($placeholderColorError);
+}
+
+input[type="text"]::placeholder {
+	@include Placeholder($placeholderColor);
+}
+
+input[type="text"].errorInputField::placeholder {
+	@include Placeholder($placeholderColorError);
+}
+
