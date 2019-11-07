@@ -2,6 +2,8 @@ import React from 'react';
 import s from '../Lists.module.scss';
 import {ButtonsGroup} from "./ButtonsGroup";
 import {TextField} from "../TextField";
+import {ButtonsGroupRemove} from "./ButtonsGroupRemove";
+import {ButtonsGroupRemoveSublist} from "./ButtonsGroupRemoveSublist";
 
 const ListsWrap = [
 	{
@@ -57,20 +59,23 @@ export const ListItem = () => {
 
 	return (
 		<ul className={s.listsWrap}>
-			<li>List_1<ButtonsGroup/>
+			<li>List_1<ButtonsGroupRemove/>
 				<ul>
+
 					<li>List_1_1<ButtonsGroup/></li>
-					<li>list_1_2<ButtonsGroup/></li>
+
+					<li>list_1_2<ButtonsGroupRemoveSublist/></li>
 					<ul>
 						<li>List_1-2_1<ButtonsGroup/></li>
 						<li>List_1-2_2<ButtonsGroup/></li>
 						<TextField/>
 					</ul>
+
 					<li>list_1_3<ButtonsGroup/></li>
 					<li>list_1_4<ButtonsGroup/></li>
 					<TextField/>
-				</ul>
 
+				</ul>
 			</li>
 			<TextField/>
 		</ul>
