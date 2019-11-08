@@ -8,22 +8,22 @@ import {ButtonsGroupRemoveList} from "./ButtonsGroupRemoveList";
 
 
 
-export const ListItem = ({listsArr}) => {
+export const ListItem = ({listsArr,addNewSublist}) => {
 
 	return (
 		<ul>
 			{listsArr && listsArr.map(list =>
-				<li key={list.id}>{list.name}<ButtonsGroupRemoveList />
+				<li key={list.id}>{list.name}<ButtonsGroupRemoveList id={list.id} />
 					<ul>
 						{list.sublist && list.sublist.map(listSub =>
 							!listSub.sublist || !listSub.sublistShow
 								?
-								<li key={listSub.id}>{listSub.name} <ButtonsGroupAddSublist /></li>
+								<li key={listSub.id}>{listSub.name} <ButtonsGroupAddSublist id={listSub.id} addNewSublist={addNewSublist} /></li>
 								:
-								<li key={listSub.id}>{listSub.name} <ButtonsGroupRemoveSublist/>
+								<li key={listSub.id}>{listSub.name} <ButtonsGroupRemoveSublist id={listSub.id} />
 									<ul>
 										{listSub.sublist && listSub.sublist.map(subSub =>
-											<li key={subSub.id}>{subSub.name}<ButtonsGroupAddSublist/></li>
+											<li key={subSub.id}>{subSub.name}<ButtonsGroupAddSublist id={subSub.id}/></li>
 										)}
 										<TextField />
 									</ul>

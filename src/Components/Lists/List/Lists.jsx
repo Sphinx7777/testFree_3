@@ -15,7 +15,7 @@ const ListsWrap = [
 				name: '1/1',
 				valuesShow: false,
 				valuesEdit: false,
-				sublistShow: false,
+				sublistShow: true,
 				sublist: false
 			},
 			{
@@ -73,22 +73,43 @@ localStorage.setItem('listsArray', JSON.stringify(ListsWrap));
 
 export const Lists = () => {
 
-	const listsArrFromLocalStorage = JSON.parse(localStorage.getItem('listsArray'));
+	let listsArrFromLocalStorage = JSON.parse(localStorage.getItem('listsArray'));
 
 	const [listsArr, setListsArr] = useState(listsArrFromLocalStorage);
+	console.log(listsArr)
 
-	const newSublist = {
-		id: +new Date().toString(),
-		name: 'newSublist',
-		valuesShow: false,
-		valuesEdit: false,
-		sublistShow: false,
-		sublist: false
+	const addNewSublist = (id) => {
+		const newSublist = {
+			id: Math.random(),
+			name: 'newSublist',
+			valuesShow: false,
+			valuesEdit: false,
+			sublistShow: false,
+			sublist: false
+		};
+		let newArr = listsArr.map(list => {
+			list.sublist.map(sub => {
+				if (sub.id === id) {
+					if(!sub.sublist){
+						sub.sublist = [];
+						sub.sublist.push(newSublist);
+					}else {
+						sub.sublist.push(newSublist);
+					}
+					return sub;
+				}
+				return sub;
+			});
+			return list;
+		}
+
+		);
+		setListsArr(newArr)
+
 	};
 
 
-
 	return (
-		<ListItem {...{listsArr}}/>
+		<ListItem {...{listsArr, addNewSublist}}/>
 	);
 };
