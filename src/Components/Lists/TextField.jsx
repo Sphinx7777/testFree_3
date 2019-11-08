@@ -12,7 +12,7 @@ export const TextField = () => {
 	const setNewField = ()=>{
 
 		const newField = {
-			id:Math.random(),
+			id:+new Date().toString(),
 			name:description,
 			phone:'',
 			email:'',

@@ -1,7 +1,7 @@
 import React from 'react';
 import s from '../Lists.module.scss';
 
-export const ButtonsGroup = () => {
+export const ButtonsGroupAddSublist = () => {
 
 
 
