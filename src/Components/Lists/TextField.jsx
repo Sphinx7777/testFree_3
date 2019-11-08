@@ -24,7 +24,7 @@ export const TextField = () => {
 	};
 
 	return (
-		<div className={s.inputWrapper}>
+		<div>
 			<input type="text" maxLength='20' onChange={onChange} placeholder='Name'/>
 			<button onClick={setNewField} disabled={!description}>Add</button>
 		</div>

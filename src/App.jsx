@@ -1,23 +1,15 @@
 import React from 'react';
 import s from './App.module.scss';
-import {Lists} from "./Components/Lists/Lists";
-import {connect} from "react-redux";
+import {ListItem} from "./Components/Lists/List/ListItem";
 
 
 
-class App extends React.Component {
+export const App = () => {
 
-	render() {
-
-		return (
-			<div className={s.app}>
-				<Lists/>
-			</div>
-		);
-	}
-}
-
-export default connect(state => ({
-	editMode: state.lists.editMode,
-}), {})(App);
+	return (
+		<div className={s.app}>
+			<ListItem />
+		</div>
+	);
+};
 
