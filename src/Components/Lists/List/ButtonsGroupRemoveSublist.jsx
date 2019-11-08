@@ -1,7 +1,7 @@
 import React from 'react';
 import s from '../Lists.module.scss';
 
-export const ButtonsGroupRemoveSublist = () => {
+export const ButtonsGroupRemoveSublist = ({removeSublist,id}) => {
 
 
 
@@ -13,7 +13,7 @@ export const ButtonsGroupRemoveSublist = () => {
 			<button className={s.down}>
 				↓
 			</button>
-			<button className={s.add}>
+			<button className={s.add} onClick={() => removeSublist(id)}>
 				Remove Sublist
 			</button>
 			<button className={s.remove}>

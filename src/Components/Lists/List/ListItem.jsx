@@ -6,34 +6,40 @@ import {ButtonsGroupRemoveSublist} from "./ButtonsGroupRemoveSublist";
 import {ButtonsGroupRemoveList} from "./ButtonsGroupRemoveList";
 
 
-
-
-export const ListItem = ({listsArr,addNewSublist}) => {
+export const ListItem = ({listsArr, addNewSublist, removeSublist}) => {
 
 	return (
-		<ul>
+		<ul className={s.wrap}>
 			{listsArr && listsArr.map(list =>
-				<li key={list.id}>{list.name}<ButtonsGroupRemoveList id={list.id} />
+				<li key={list.id}>{list.name}<ButtonsGroupRemoveList id={list.id}/>
 					<ul>
 						{list.sublist && list.sublist.map(listSub =>
-							!listSub.sublist || !listSub.sublistShow
+							!listSub.sublist || !listSub.sublist.length || !listSub.sublistShow
 								?
-								<li key={listSub.id}>{listSub.name} <ButtonsGroupAddSublist id={listSub.id} addNewSublist={addNewSublist} /></li>
+								<li key={listSub.id}>{listSub.name}
+									<ButtonsGroupAddSublist {...{id: listSub.id, addNewSublist, removeSublist}} />
+								</li>
 								:
-								<li key={listSub.id}>{listSub.name} <ButtonsGroupRemoveSublist id={listSub.id} />
+								<li key={listSub.id}>{listSub.name} <ButtonsGroupRemoveSublist {...{id: listSub.id, removeSublist}}  />
 									<ul>
 										{listSub.sublist && listSub.sublist.map(subSub =>
-											<li key={subSub.id}>{subSub.name}<ButtonsGroupAddSublist id={subSub.id}/></li>
+											<li key={subSub.id}>
+												{subSub.name}
+												<ButtonsGroupAddSublist {...{
+													id: listSub.id, subId: subSub.id,
+													addNewSublist, removeSublist
+												}} />
+											</li>
 										)}
-										<TextField />
+										<TextField id={listSub.id}/>
 									</ul>
 								</li>
 						)}
-						<TextField />
+						<TextField/>
 					</ul>
 				</li>
 			)}
-			<TextField />
+			<TextField/>
 		</ul>
 	);
 };

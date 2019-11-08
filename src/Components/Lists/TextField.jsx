@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import s from './Lists.module.scss';
 
-export const TextField = () => {
+export const TextField = ({id}) => {
 
 	let [description,setDescription] = useState(null);
 
@@ -12,8 +12,8 @@ export const TextField = () => {
 	const setNewField = ()=>{
 
 		const newField = {
-			id:+new Date().toString(),
-			name:description,
+			id:Math.random(),
+			name:'newSub',
 			phone:'',
 			email:'',
 			showDesc:false,
