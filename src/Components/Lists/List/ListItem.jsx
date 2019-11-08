@@ -8,16 +8,17 @@ import {ButtonsGroupRemoveSublist} from "./ButtonsGroupRemoveSublist";
 
 const ListsWrap = [
 	{
-		id:29,
-		name:'List_1',
+		id: 29,
+		name: 'List_1',
 		valuesShow: false,
 		valuesEdit: false,
-		sublist:[
+		sublist: [
 			{
 				id: 28,
 				name: '1/1',
 				valuesShow: false,
 				valuesEdit: false,
+				sublistShow: false,
 				sublist: false
 			},
 			{
@@ -25,6 +26,7 @@ const ListsWrap = [
 				name: '1/2',
 				valuesShow: false,
 				valuesEdit: false,
+				sublistShow: true,
 				sublist:
 					[
 						{
@@ -56,6 +58,7 @@ const ListsWrap = [
 				name: '1/3',
 				valuesShow: false,
 				valuesEdit: false,
+				sublistShow: false,
 				sublist: false
 			},
 			{
@@ -63,14 +66,11 @@ const ListsWrap = [
 				name: '1/4',
 				valuesShow: false,
 				valuesEdit: false,
+				sublistShow: false,
 				sublist: false
 			}
 		]
-
-
 	},
-
-
 ];
 
 
@@ -81,30 +81,28 @@ export const ListItem = () => {
 
 	return (
 		<ul>
-
-			<li>list_1
-				<ul>
-					{listsArr.map(list =>
-						!list.sublist
-							?
-							<li key={list.id}>{list.name} <ButtonsGroup/></li>
-							:
-							<li key={list.id}>{list.name} <ButtonsGroupRemoveSublist/>
-								{list.sublist.map(ls =>
-									<ul key={ls.id}>
-										<li>{ls.name} <ButtonsGroup/></li>
+			{listsArr.map(list =>
+				<li>{list.name}
+					<ul>
+						{list.sublist && list.sublist.map(listSub =>
+							!listSub.sublist || !listSub.sublistShow
+								?
+								<li>{listSub.name} <ButtonsGroup/></li>
+								:
+								<li>{listSub.name} <ButtonsGroupRemove/>
+									<ul>
+										{listSub.sublist && listSub.sublist.map(subSub =>
+											<li>{subSub.name}<ButtonsGroup/></li>
+										)}
+										<TextField />
 									</ul>
-								)
-								}
-
-							</li>
-					)
-					}
-
-				</ul>
-
-			</li>
-
+								</li>
+						)}
+						<TextField />
+					</ul>
+				</li>
+			)}
+			<TextField />
 		</ul>
 	);
 };
