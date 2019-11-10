@@ -3,91 +3,19 @@ import s from '../Lists.module.scss';
 import {ListItem} from "./ListItem";
 
 
-const ListsWrap = [
-	{
-		id: 1,
-		name: 'List_1',
-		valuesShow: false,
-		valuesEdit: false,
-		sublist: [
-			{
-				id: 11,
-				name: '1/1',
-				valuesShow: false,
-				valuesEdit: false,
-				sublistShow: true,
-				sublist: false
-			},
-			{
-				id: 12,
-				name: '1/2',
-				valuesShow: false,
-				valuesEdit: false,
-				sublistShow: true,
-				sublist:
-					[
-						{
-							id: 121,
-							name: '1/2/1',
-							valuesShow: false,
-							valuesEdit: false,
-							values: {
-								phone: 1234567891,
-								email: '123@gmail.com',
-								dateOfBirth: '20.02.2075'
-							}
-						},
-						{
-							id: 122,
-							name: '1/2/2',
-							valuesShow: false,
-							valuesEdit: false,
-							values: {
-								phone: 1234567891,
-								email: '123@gmail.com',
-								dateOfBirth: '20.02.2075'
-							}
-						},
-					]
-			},
-			{
-				id: 13,
-				name: '1/3',
-				valuesShow: false,
-				valuesEdit: false,
-				sublistShow: true,
-				sublist: false
-			},
-			{
-				id: 14,
-				name: '1/4',
-				valuesShow: false,
-				valuesEdit: false,
-				sublistShow: true,
-				sublist: false
-			}
-		]
-	},
-];
-
-localStorage.setItem('listsArray', JSON.stringify(ListsWrap));
-
-export const Lists = () => {
+export const Lists = ({createNewSublistContent,ListsWrap}) => {
 
 	let listsArrFromLocalStorage = JSON.parse(localStorage.getItem('listsArray'));
+	const [listsArr, setListsArr] = useState(listsArrFromLocalStorage || ListsWrap);
 
-	const [listsArr, setListsArr] = useState(listsArrFromLocalStorage);
-	console.log(listsArr);
+	const setChangeToLocaleStorage = (newArr) => {
+		localStorage.setItem('listsArray', JSON.stringify(newArr));
+		let listsArrFromLocalStorage = JSON.parse(localStorage.getItem('listsArray'));
+		setListsArr(listsArrFromLocalStorage);
+	};
 
 	const addNewSublist = (id) => {
-		const newSublist = {
-			id: Math.random(),
-			name: 'newSublist',
-			valuesShow: false,
-			valuesEdit: false,
-			sublistShow: false,
-			sublist: false
-		};
+		const newSublist = createNewSublistContent();
 		let newArr = listsArr.map(list => {
 			list.sublist.map(sub => {
 				if (sub.id === id) {
@@ -103,21 +31,22 @@ export const Lists = () => {
 			});
 			return list;
 		});
-		setListsArr(newArr)
+
+		setChangeToLocaleStorage(newArr);
 	};
 
-	const removeSublist = (id,subId) => {
+	const removeSublist = (id, subId) => {
 		let newArr = listsArr.map(list => {
 			list.sublist.map(sub => {
 				if (sub.id === id) {
-					sub.sublist=sub.sublist.filter(s => s.id !== subId);
+					sub.sublist = sub.sublist.filter(s => s.id !== subId);
 					return sub;
 				}
 				return sub;
 			});
 			return list;
 		});
-		setListsArr(newArr)
+		setChangeToLocaleStorage(newArr);
 	};
 
 
