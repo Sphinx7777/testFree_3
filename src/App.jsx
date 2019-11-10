@@ -1,21 +1,9 @@
-import React from 'react';
+import React, {useReducer} from 'react';
 import s from './App.module.scss';
 import {Lists} from "./Components/Lists/List/Lists";
+import {reducer} from "./Components/Lists/List/Reducer/Reducer";
 
-const createNewSublistContent = () => {
-	return {
-		id: Math.random(),
-		name: Math.random().toString(36).substr(2, 5),
-		valuesShow: false,
-		valuesEdit: false,
-		sublistShow: false,
-		sublist: false,
-		values:{
-			phone:null,
-			email:null
-		}
-	}
-};
+
 const ListsWrap = [
 	{
 		id: 1,
@@ -29,7 +17,11 @@ const ListsWrap = [
 				valuesShow: false,
 				valuesEdit: false,
 				sublistShow: true,
-				sublist: false
+				sublist: false,
+				values:{
+					phone:11,
+					email:'11@gmail.com'
+				}
 			},
 			{
 				id: 12,
@@ -37,7 +29,11 @@ const ListsWrap = [
 				valuesShow: false,
 				valuesEdit: false,
 				sublistShow: true,
-				sublist: false
+				sublist: false,
+				values:{
+					phone:12,
+					email:'12@gmail.com'
+				}
 			},
 			{
 				id: 13,
@@ -45,7 +41,11 @@ const ListsWrap = [
 				valuesShow: false,
 				valuesEdit: false,
 				sublistShow: true,
-				sublist: false
+				sublist: false,
+				values:{
+					phone:13,
+					email:'13@gmail.com'
+				}
 			},
 			{
 				id: 14,
@@ -53,31 +53,26 @@ const ListsWrap = [
 				valuesShow: false,
 				valuesEdit: false,
 				sublistShow: true,
-				sublist: false
+				sublist: false,
+				values:{
+					phone:14,
+					email:'14@gmail.com'
+				}
 			}
 		]
 	},
 ];
 
-// const initialState = {count: 0};
-//
-// function reducer(state, action) {
-// 	switch (action.type) {
-// 		case 'increment':
-// 			return {count: state.count + 1};
-// 		case 'decrement':
-// 			return {count: state.count - 1};
-// 		default:
-// 			throw new Error();
-// 	}
-// }
 
 
 export const App = () => {
-	// const [state, dispatch] = useReducer(reducer, initialState);
+	let listsArrFromLocalStorage = JSON.parse(localStorage.getItem('listsArray'));
+	let initialState = listsArrFromLocalStorage ? {ListsWrap:listsArrFromLocalStorage} : {ListsWrap};
+	const [state, dispatch] = useReducer(reducer, initialState);
+
 	return (
 		<div className={s.app}>
-			<Lists {...{createNewSublistContent,ListsWrap}}/>
+			<Lists {...{listsArr: state.ListsWrap , dispatch}}/>
 		</div>
 	);
 };

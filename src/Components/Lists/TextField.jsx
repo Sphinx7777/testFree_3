@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import s from './Lists.module.scss';
+
 
 export const TextField = ({id}) => {
 
@@ -9,24 +9,24 @@ export const TextField = ({id}) => {
 		setDescription(event.target.value)
 	};
 
-	const setNewField = ()=>{
-
-		const newField = {
-			id:Math.random(),
-			name:'newSub',
-			phone:'',
-			email:'',
-			showDesc:false,
-			showForm: false
-		};
-
-
-	};
+	// const setNewField = ()=>{
+	//
+	// 	const newField = {
+	// 		id:Math.random(),
+	// 		name:'newSub',
+	// 		phone:'',
+	// 		email:'',
+	// 		showDesc:false,
+	// 		showForm: false
+	// 	};
+	//
+	//
+	// };
 
 	return (
 		<div>
 			<input type="text" maxLength='20' onChange={onChange} placeholder='Name'/>
-			<button onClick={setNewField} disabled={!description}>Add</button>
+			<button disabled={!description}>Add</button>
 		</div>
 	);
 };

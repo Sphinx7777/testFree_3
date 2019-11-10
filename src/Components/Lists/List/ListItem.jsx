@@ -7,9 +7,7 @@ import {AddSublist} from "./ListItemComponents/AddSublist";
 import {AddSublistForSublist} from "./ListItemComponents/AddSublistForSublist";
 
 
-export const ListItem = (
-	{listsArr, addNewSublistInSublist, removeSublistFromSublist
-	}) => {
+export const ListItem = ({listsArr,dispatch}) => {
 
 	return (
 		<ul className={s.wrap}>
@@ -24,12 +22,12 @@ export const ListItem = (
 						{list.sublist && list.sublist.map(listSub =>
 							!listSub.sublist || !listSub.sublist.length || !listSub.sublistShow
 								?
-								<AddSublist key={listSub.id} {...{listSub, addNewSublistInSublist, removeSublistFromSublist}} />
+								<AddSublist key={listSub.id} {...{listSub, dispatch}} />
 								:
 								<li key={listSub.id}>{listSub.name}
 									<ButtonsGroupRemoveSublist {...
 										{
-											addNewSublistInSublist,
+											dispatch,
 											name: listSub.name,
 											id: listSub.id
 										}}
@@ -38,7 +36,7 @@ export const ListItem = (
 										{listSub.sublist && listSub.sublist.map(subSub =>
 											<AddSublistForSublist key={subSub.id} {...
 												{
-													listSub, subSub, addNewSublistInSublist, removeSublistFromSublist
+													listSub, subSub, dispatch
 												}}
 											/>
 										)}

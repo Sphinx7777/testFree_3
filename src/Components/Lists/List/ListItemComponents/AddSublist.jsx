@@ -5,14 +5,14 @@ import {ButtonsGroupAddSublist} from "../ButtonsGroup/ButtonsGroupAddSublist";
 
 
 export const AddSublist = (
-	{listSub, addNewSublistInSublist, removeSublistFromSublist
+	{listSub, dispatch
 	}) => {
 
 	return (
 		<li>{listSub.name}
 			<ButtonsGroupAddSublist {...
 				{
-					name: listSub.name, id: listSub.id, addNewSublistInSublist, removeSublistFromSublist
+					name: listSub.name, id: listSub.id, dispatch
 				}}
 			/>
 		</li>
