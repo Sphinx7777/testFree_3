@@ -3,7 +3,9 @@ import s from '../Lists.module.scss';
 import {ListItem} from "./ListItem";
 
 
-export const Lists = ({createNewSublistContent,ListsWrap}) => {
+export const Lists = (
+	{createNewSublistContent,ListsWrap
+	}) => {
 
 	let listsArrFromLocalStorage = JSON.parse(localStorage.getItem('listsArray'));
 	const [listsArr, setListsArr] = useState(listsArrFromLocalStorage || ListsWrap);
@@ -14,7 +16,7 @@ export const Lists = ({createNewSublistContent,ListsWrap}) => {
 		setListsArr(listsArrFromLocalStorage);
 	};
 
-	const addNewSublist = (id) => {
+	const addNewSublistInSublist = (id) => {
 		const newSublist = createNewSublistContent();
 		let newArr = listsArr.map(list => {
 			list.sublist.map(sub => {
@@ -35,7 +37,7 @@ export const Lists = ({createNewSublistContent,ListsWrap}) => {
 		setChangeToLocaleStorage(newArr);
 	};
 
-	const removeSublist = (id, subId) => {
+	const removeSublistFromSublist = (id, subId) => {
 		let newArr = listsArr.map(list => {
 			list.sublist.map(sub => {
 				if (sub.id === id) {
@@ -51,6 +53,6 @@ export const Lists = ({createNewSublistContent,ListsWrap}) => {
 
 
 	return (
-		<ListItem {...{listsArr, addNewSublist, removeSublist}}/>
+		<ListItem {...{listsArr, addNewSublistInSublist, removeSublistFromSublist}}/>
 	);
 };

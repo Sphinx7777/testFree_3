@@ -1,6 +1,5 @@
 import React from 'react';
 import s from '../Lists.module.scss';
-import {ButtonsGroupAddSublist} from "./ButtonsGroup/ButtonsGroupAddSublist";
 import {TextField} from "../TextField";
 import {ButtonsGroupRemoveSublist} from "./ButtonsGroup/ButtonsGroupRemoveSublist";
 import {ButtonsGroupRemoveList} from "./ButtonsGroup/ButtonsGroupRemoveList";
@@ -8,7 +7,9 @@ import {AddSublist} from "./ListItemComponents/AddSublist";
 import {AddSublistForSublist} from "./ListItemComponents/AddSublistForSublist";
 
 
-export const ListItem = ({listsArr, addNewSublist, removeSublist}) => {
+export const ListItem = (
+	{listsArr, addNewSublistInSublist, removeSublistFromSublist
+	}) => {
 
 	return (
 		<ul className={s.wrap}>
@@ -23,22 +24,21 @@ export const ListItem = ({listsArr, addNewSublist, removeSublist}) => {
 						{list.sublist && list.sublist.map(listSub =>
 							!listSub.sublist || !listSub.sublist.length || !listSub.sublistShow
 								?
-								<AddSublist key={listSub.id} {...{listSub, addNewSublist, removeSublist}} />
+								<AddSublist key={listSub.id} {...{listSub, addNewSublistInSublist, removeSublistFromSublist}} />
 								:
 								<li key={listSub.id}>{listSub.name}
 									<ButtonsGroupRemoveSublist {...
 										{
-											addNewSublist,
+											addNewSublistInSublist,
 											name: listSub.name,
-											id: listSub.id,
-											removeSublist
+											id: listSub.id
 										}}
 									/>
 									<ul>
 										{listSub.sublist && listSub.sublist.map(subSub =>
 											<AddSublistForSublist key={subSub.id} {...
 												{
-													listSub, subSub, addNewSublist, removeSublist
+													listSub, subSub, addNewSublistInSublist, removeSublistFromSublist
 												}}
 											/>
 										)}

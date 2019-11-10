@@ -9,7 +9,11 @@ const createNewSublistContent = () => {
 		valuesShow: false,
 		valuesEdit: false,
 		sublistShow: false,
-		sublist: false
+		sublist: false,
+		values:{
+			phone:null,
+			email:null
+		}
 	}
 };
 const ListsWrap = [
@@ -55,8 +59,22 @@ const ListsWrap = [
 	},
 ];
 
-export const App = () => {
+// const initialState = {count: 0};
+//
+// function reducer(state, action) {
+// 	switch (action.type) {
+// 		case 'increment':
+// 			return {count: state.count + 1};
+// 		case 'decrement':
+// 			return {count: state.count - 1};
+// 		default:
+// 			throw new Error();
+// 	}
+// }
 
+
+export const App = () => {
+	// const [state, dispatch] = useReducer(reducer, initialState);
 	return (
 		<div className={s.app}>
 			<Lists {...{createNewSublistContent,ListsWrap}}/>
