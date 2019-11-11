@@ -1,7 +1,7 @@
 import React from 'react';
 import s from '../../Lists.module.scss';
 
-export const ButtonsGroupAddSublist = ({name,dispatch, id, subId}) => {
+export const ButtonsGroupAddSublist = ({name, dispatch, id, subId}) => {
 
 
 	return (
@@ -12,10 +12,10 @@ export const ButtonsGroupAddSublist = ({name,dispatch, id, subId}) => {
 			<button className={s.down}>
 				↓
 			</button>
-			<button className={s.add} onClick={() => dispatch({type: 'addSublistInSublist',id})}>
+			<button className={s.add} onClick={() => dispatch({type: 'addSublistInSublist', id})}>
 				Add Sublist
 			</button>
-			<button className={s.remove} onClick={() => dispatch({type: 'removeSublistFromSublist',payload:{id,subId}})}>
+			<button className={s.remove} onClick={() => dispatch({type: 'removeSublistFromSublist', payload: {id, subId}})}>
 				Remove <b>{name}</b>
 			</button>
 		</>

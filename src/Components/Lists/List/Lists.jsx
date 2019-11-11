@@ -2,9 +2,9 @@ import React from 'react';
 import {ListItem} from "./ListItem";
 
 
-export const Lists = ({listsArr,dispatch}) => {
+export const Lists = ({listsArr, dispatch}) => {
 
 	return (
-		<ListItem {...{listsArr,dispatch}}/>
+		<ListItem {...{listsArr, dispatch}}/>
 	);
 };

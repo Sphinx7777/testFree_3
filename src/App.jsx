@@ -18,9 +18,9 @@ const ListsWrap = [
 				valuesEdit: false,
 				sublistShow: true,
 				sublist: false,
-				values:{
-					phone:11,
-					email:'11@gmail.com'
+				values: {
+					phone: 11,
+					email: '11@gmail.com'
 				}
 			},
 			{
@@ -30,9 +30,9 @@ const ListsWrap = [
 				valuesEdit: false,
 				sublistShow: true,
 				sublist: false,
-				values:{
-					phone:12,
-					email:'12@gmail.com'
+				values: {
+					phone: 12,
+					email: '12@gmail.com'
 				}
 			},
 			{
@@ -42,9 +42,9 @@ const ListsWrap = [
 				valuesEdit: false,
 				sublistShow: true,
 				sublist: false,
-				values:{
-					phone:13,
-					email:'13@gmail.com'
+				values: {
+					phone: 13,
+					email: '13@gmail.com'
 				}
 			},
 			{
@@ -54,9 +54,9 @@ const ListsWrap = [
 				valuesEdit: false,
 				sublistShow: true,
 				sublist: false,
-				values:{
-					phone:14,
-					email:'14@gmail.com'
+				values: {
+					phone: 14,
+					email: '14@gmail.com'
 				}
 			}
 		]
@@ -64,15 +64,19 @@ const ListsWrap = [
 ];
 
 
-
 export const App = () => {
+
 	let listsArrFromLocalStorage = JSON.parse(localStorage.getItem('listsArray'));
-	let initialState = listsArrFromLocalStorage ? {ListsWrap:listsArrFromLocalStorage} : {ListsWrap};
+
+	let initialState = listsArrFromLocalStorage
+		? {ListsWrap: listsArrFromLocalStorage}
+		: {ListsWrap};
+
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
 		<div className={s.app}>
-			<Lists {...{listsArr: state.ListsWrap , dispatch}}/>
+			<Lists {...{listsArr: state.ListsWrap, dispatch}}/>
 		</div>
 	);
 };

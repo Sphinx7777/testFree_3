@@ -2,15 +2,14 @@ import React from 'react';
 import {ButtonsGroupAddSublist} from "../ButtonsGroup/ButtonsGroupAddSublist";
 
 
-export const AddSublistForSublist = (
-	{listSub,dispatch, subSub
-	}) => {
+export const AddSublistForSublist = ({listSub, dispatch, subSub}) => {
 
 	return (
 		<li>
-			{subSub.name}
+			<span>{subSub.name}</span>
 			<ButtonsGroupAddSublist {...
-				{dispatch,
+				{
+					dispatch,
 					name: subSub.name,
 					id: listSub.id, subId: subSub.id
 				}}/>
