@@ -13,7 +13,11 @@ export const TextFieldNewList = ({dispatch}) => {
 	return (
 		<div>
 			<input type="text" maxLength='20' onChange={onChange} placeholder='New list'/>
-			<button disabled={!description}>Add</button>
+			<button disabled={!description}
+							onClick={() => dispatch({type: 'addList',
+								name:description})}>
+				Add
+			</button>
 		</div>
 	);
 };

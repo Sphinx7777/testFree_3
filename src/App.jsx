@@ -9,8 +9,7 @@ const ListsWrap = [
 	{
 		id: 1,
 		name: 'List_1',
-		valuesShow: false,
-		valuesEdit: false,
+		nameEdit:false,
 		sublist: [
 			{
 				id: 11,
@@ -30,7 +29,33 @@ const ListsWrap = [
 				valuesShow: false,
 				valuesEdit: false,
 				sublistShow: true,
-				sublist: false,
+				sublist: [
+					{
+						id: 121,
+						name: '1/2/1',
+						valuesShow: false,
+						valuesEdit: false,
+						sublistShow: true,
+						sublist: false,
+						values: {
+							phone: 121,
+							email: 'new@gmail.com'
+						}
+					},
+					{
+						id: 122,
+						name: '1/2/2',
+						valuesShow: false,
+						valuesEdit: false,
+						sublistShow: true,
+						sublist: false,
+						values: {
+							phone: 122,
+							email: 'new@gmail.com'
+						}
+					}
+
+				],
 				values: {
 					phone: 12,
 					email: '12@gmail.com'

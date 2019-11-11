@@ -2,7 +2,7 @@ const setChangeToLocaleStorage = (arr) => {
 	localStorage.setItem('listsArray', JSON.stringify(arr));
 };
 
-const createNewSublistContent = (name=Math.random().toString(36).substr(2, 5)) => {
+const createNewSublistContent = (name = Math.random().toString(36).substr(2, 5)) => {
 	return {
 		id: Math.random(),
 		name: name,
@@ -17,6 +17,14 @@ const createNewSublistContent = (name=Math.random().toString(36).substr(2, 5)) =
 	}
 };
 
+const createNewList = (name = Math.random().toString(36).substr(2, 5)) => {
+	return {
+		id: Math.random(),
+		name: name,
+		nameEdit: false,
+		sublist: []
+	}
+};
 
 export const reducer = (state, action) => {
 	switch (action.type) {
@@ -56,22 +64,31 @@ export const reducer = (state, action) => {
 			};
 		case 'removeSublist':
 			return {
-				ListsWrap: state.ListsWrap.map(list =>{
-						list.sublist=list.sublist.filter(sub => sub.id !== action.id);
+				ListsWrap: state.ListsWrap.map(list => {
+						list.sublist = list.sublist.filter(sub => sub.id !== action.id);
 						setChangeToLocaleStorage(state.ListsWrap);
 						return list
-				}
-				)};
+					}
+				)
+			};
 		case 'addSublist':
 			return {
-				ListsWrap: state.ListsWrap.map(list =>{
-					if(list.id === action.payload.id){
-						list.sublist.push(createNewSublistContent(action.payload.name));
-					}
+				ListsWrap: state.ListsWrap.map(list => {
+						if (list.id === action.payload.id) {
+							if (!list.sublist || !list.sublist.length) {
+								list.sublist = [];
+								list.sublist.push(createNewSublistContent(action.payload.name));
+								setChangeToLocaleStorage(state.ListsWrap);
+							} else {
+								list.sublist.push(createNewSublistContent(action.payload.name));
+								setChangeToLocaleStorage(state.ListsWrap);
+							}
+						}
 						setChangeToLocaleStorage(state.ListsWrap);
 						return list
-				}
-				)};
+					}
+				)
+			};
 		case 'toggleValues':
 			return {
 				ListsWrap: state.ListsWrap.map(list => {
@@ -91,8 +108,8 @@ export const reducer = (state, action) => {
 				ListsWrap: state.ListsWrap.map(list => {
 					list.sublist.map(sub => {
 						if (sub.id === action.payload.id) {
-							sub.sublist.map(ss=>{
-								if(ss.id === action.payload.subId){
+							sub.sublist.map(ss => {
+								if (ss.id === action.payload.subId) {
 									ss.valuesShow = !ss.valuesShow;
 									setChangeToLocaleStorage(state.ListsWrap);
 								}
@@ -103,6 +120,25 @@ export const reducer = (state, action) => {
 					});
 					return list;
 				})
+			};
+		case 'addList':
+			const newList = (name) => {
+				state.ListsWrap.push(createNewList(name));
+				setChangeToLocaleStorage(state.ListsWrap);
+				return state.ListsWrap;
+			};
+			return {
+				ListsWrap: state.ListsWrap = newList(action.name)
+
+			};
+		case 'removeList':
+			const newListForRemove = () => {
+				state.ListsWrap =	state.ListsWrap.filter(list => list.id !== action.id);
+				setChangeToLocaleStorage(state.ListsWrap);
+				return state.ListsWrap;
+			};
+			return {
+				ListsWrap: state.ListsWrap = newListForRemove()
 			};
 		default:
 			throw new Error();
