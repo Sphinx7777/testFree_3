@@ -77,8 +77,26 @@ export const reducer = (state, action) => {
 				ListsWrap: state.ListsWrap.map(list => {
 					list.sublist.map(sub => {
 						if (sub.id === action.id) {
-							sub.valuesShow = !sub.valuesShow
+							sub.valuesShow = !sub.valuesShow;
 							setChangeToLocaleStorage(state.ListsWrap);
+							return sub;
+						}
+						return sub;
+					});
+					return list;
+				})
+			};
+		case 'toggleSublistValues':
+			return {
+				ListsWrap: state.ListsWrap.map(list => {
+					list.sublist.map(sub => {
+						if (sub.id === action.payload.id) {
+							sub.sublist.map(ss=>{
+								if(ss.id === action.payload.subId){
+									ss.valuesShow = !ss.valuesShow;
+									setChangeToLocaleStorage(state.ListsWrap);
+								}
+							});
 							return sub;
 						}
 						return sub;
