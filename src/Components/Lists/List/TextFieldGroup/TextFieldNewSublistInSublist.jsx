@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 
-export const TextFieldNewSublistInSublist = ({listSub}) => {
+export const TextFieldNewSublistInSublist = ({listSub,dispatch}) => {
 
 	let [description, setDescription] = useState(null);
 
@@ -12,8 +12,14 @@ export const TextFieldNewSublistInSublist = ({listSub}) => {
 
 	return (
 		<div>
-			<input type="text" maxLength='20' onChange={onChange} placeholder='New Sublist in sublist'/>
-			<button disabled={!description}>Add</button>
+			<input type="text" maxLength='20'
+						 onChange={onChange} placeholder='New Sublist in sublist'
+			/>
+			<button disabled={!description}
+							onClick={() => dispatch({type: 'addSublistInSublist',
+				payload:{id:listSub.id,name:description}})}>
+				Add
+			</button>
 		</div>
 	);
 };

@@ -24,13 +24,13 @@ export const reducer = (state, action) => {
 			return {
 				ListsWrap: state.ListsWrap.map(list => {
 					list.sublist.map(sub => {
-						if (sub.id === action.id) {
+						if (sub.id === action.payload.id) {
 							if (!sub.sublist) {
 								sub.sublist = [];
-								sub.sublist.push(createNewSublistContent());
+								sub.sublist.push(createNewSublistContent(action.payload.name));
 								setChangeToLocaleStorage(state.ListsWrap);
 							} else {
-								sub.sublist.push(createNewSublistContent());
+								sub.sublist.push(createNewSublistContent(action.payload.name));
 								setChangeToLocaleStorage(state.ListsWrap);
 							}
 							return sub;

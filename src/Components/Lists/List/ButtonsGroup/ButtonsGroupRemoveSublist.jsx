@@ -13,7 +13,7 @@ export const ButtonsGroupRemoveSublist = ({dispatch,name,id}) => {
 			<button className={s.down}>
 				↓
 			</button>
-			<button className={s.add} onClick={() => dispatch({type: 'addSublistInSublist',id})}>
+			<button className={s.add} onClick={() => dispatch({type: 'addSublistInSublist',payload:{id} })}>
 				Add Sublist
 			</button>
 			<button className={s.remove} onClick={() => dispatch({type: 'removeSublist',id})}>

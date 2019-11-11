@@ -10,7 +10,7 @@ import {TextFieldNewList} from "./TextFieldGroup/TextFieldNewList";
 import {Contacts} from "./Contacts";
 
 
-export const ListItem = ({listsArr,dispatch}) => {
+export const ListItem = ({listsArr, dispatch}) => {
 
 	return (
 		<ul className={s.wrap}>
@@ -26,12 +26,11 @@ export const ListItem = ({listsArr,dispatch}) => {
 
 							!listSub.sublist || !listSub.sublist.length || !listSub.sublistShow
 								?
-								<AddSublist key={listSub.id} {...{listSub,list, dispatch}} />
-
+								<AddSublist key={listSub.id} {...{listSub, list, dispatch}} />
 								:
 								<li key={listSub.id} className={s.sublist}>
 									<span
-										onDoubleClick={() => dispatch({type: 'toggleValues',id: listSub.id})}
+										onDoubleClick={() => dispatch({type: 'toggleValues', id: listSub.id})}
 									>{listSub.name}</span>
 									{listSub.valuesShow && <Contacts name={listSub.name}/>}
 									<ButtonsGroupRemoveSublist {...
