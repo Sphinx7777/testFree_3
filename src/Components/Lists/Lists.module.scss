@@ -2,19 +2,29 @@
 	display: inline-block;
 	margin: 5rem auto;
 	text-align: center;
-	.up,.down,.add,.remove {
-		margin: .2rem;
-	}
-.sublist {
-	position: relative;
 
-	.showDesc {
-		position: absolute;
-		right: 20rem;
-width: 100%;
 
+	.up, .down, .add, .remove {
+		margin: .3rem;
 	}
-}
+
+	.sublist {
+		position: relative;
+
+
+		.showDesc {
+			text-align: center;
+			position: absolute;
+			right: 0;
+			background-color: white;
+			padding: 0.5rem 0.5rem 0 0.5rem;
+			border: 1px solid black;
+			border-radius: 0.4rem;
+			width: 100%;
+			z-index: 5;
+
+		}
+	}
 
 }
 

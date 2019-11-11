@@ -140,6 +140,42 @@ export const reducer = (state, action) => {
 			return {
 				ListsWrap: state.ListsWrap = newListForRemove()
 			};
+		case 'changeSublistValues':
+			return {
+				ListsWrap: state.ListsWrap.map(list => {
+					list.sublist.map(sub => {
+						if (sub.id === action.id) {
+							sub.name = action.name;
+							sub.values.phone = action.phone;
+							sub.values.email = action.email;
+							setChangeToLocaleStorage(state.ListsWrap);
+							return sub;
+						}
+						return sub;
+					});
+					return list;
+				})
+			};
+		case 'changeSublistInSublistValues':
+			return {
+				ListsWrap: state.ListsWrap.map(list => {
+					list.sublist.map(sub => {
+						if (sub.id === action.id) {
+							sub.sublist.map(ss => {
+								if (ss.id === action.subId) {
+									ss.name = action.name;
+									ss.values.phone = action.phone;
+									ss.values.email = action.email;
+									setChangeToLocaleStorage(state.ListsWrap);
+								}
+							});
+							return sub;
+						}
+						return sub;
+					});
+					return list;
+				})
+			};
 		default:
 			throw new Error();
 	}

@@ -1,7 +1,8 @@
 import React, {useReducer} from 'react';
 import s from './App.module.scss';
-import {Lists} from "./Components/Lists/List/Lists";
 import {reducer} from "./Components/Lists/List/Reducer/Reducer";
+import {ListItem} from "./Components/Lists/List/ListItem";
+import {Footer} from "./Components/Footer/Footer";
 
 
 
@@ -102,7 +103,8 @@ export const App = () => {
 
 	return (
 		<div className={s.app}>
-			<Lists {...{listsArr: state.ListsWrap, dispatch}}/>
+			<ListItem {...{listsArr: state.ListsWrap, dispatch}}/>
+			<Footer />
 		</div>
 	);
 };

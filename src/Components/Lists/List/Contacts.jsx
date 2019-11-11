@@ -1,23 +1,26 @@
-import React from 'react';
+import React,{useState} from 'react';
 import s from '../Lists.module.scss';
+import {ContactForm} from "../Form/ContactForm";
 
 
-export const Contacts = ({name}) => {
+export const Contacts = ({name,phone,email,onSubmit,id,subId}) => {
+	const [showForm,setShowForm] = useState(false);
+	const setToggleFormShow = () =>{
+		setShowForm(!showForm)
+	};
 
 	return (
-		<div className={s.showDesc}>
+		<div className={s.showDesc} onDoubleClick={setToggleFormShow} title='DoubleClick for edit mode'>
 						  <div className={s.showDescName}>
 								{name}
 						  </div>
 			<div className={s.showDescEmail}>
-							✉ 123@gmail.com
+							✉ {email}
 						  </div>
 			<div className={s.showDescPhone}>
-							✆ 066 395 24 88
+							✆ {phone}
 						  </div>
-			<div className={s.closeDesc}>
-								X
-							</div>
+			{showForm && <ContactForm {...{values:{name,email,phone}, setToggleFormShow,onSubmit,id,subId}}/>}
 		</div>
 	);
 };
