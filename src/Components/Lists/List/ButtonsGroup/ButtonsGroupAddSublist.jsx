@@ -3,6 +3,12 @@ import s from '../../Lists.module.scss';
 
 export const ButtonsGroupAddSublist = ({name, dispatch, id, subId}) => {
 
+	const addSublistInSublist = () => {
+		dispatch({type: 'addSublistInSublist', payload: {id}})
+	};
+	const removeSublistFromSublist = () => {
+		dispatch({type: 'removeSublistFromSublist', payload: {id, subId}})
+	};
 
 	return (
 		<>
@@ -12,10 +18,10 @@ export const ButtonsGroupAddSublist = ({name, dispatch, id, subId}) => {
 			<button className={s.down}>
 				↓
 			</button>
-			<button className={s.add} onClick={() => dispatch({type: 'addSublistInSublist',payload:{id} })}>
+			<button className={s.add} onClick={addSublistInSublist}>
 				Add Sublist
 			</button>
-			<button className={s.remove} onClick={() => dispatch({type: 'removeSublistFromSublist', payload: {id, subId}})}>
+			<button className={s.remove} onClick={removeSublistFromSublist}>
 				Remove <b>{name}</b>
 			</button>
 		</>

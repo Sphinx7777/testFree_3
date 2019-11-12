@@ -11,7 +11,7 @@ export const Footer = () => {
 
 	return (
 		<div className={s.footerWrapper}>
-			<div style={{textAlign:'left',paddingLeft:'10%'}}>
+			<div style={{textAlign: 'left', paddingLeft: '10%'}}>
 				Сделано отрывками что успел без редакса на хуках : <br/>
 				Все add Sublist и Remove работают (назначение кнопки 'remove Sublist' я не понял и убрал) <br/>
 				Удаление текущих и добавление новых подСписков <br/>
@@ -24,40 +24,69 @@ export const Footer = () => {
 			</div>
 			<footer className={s.footer}>
 				<div>
-					<a className={s.link}  target='_blank' rel='noopener noreferrer'
+					<a className={s.link}
+						 target='_blank'
+						 rel='noopener noreferrer'
 						 href="https://sphinx7777.github.io/testFree">
-						<img className={s.linkImg} src={test} alt="Test 1"/>
-						<span className={s.linkTitle}>Test_1</span>
+						<img className={s.linkImg}
+								 src={test}
+								 alt="Test 1"/>
+						<span className={s.linkTitle}>
+							Test_1
+						</span>
 					</a>
 				</div>
 				<div className={s.LinkWrapper}>
 					<div className={s.linkLineWrapper}>
-						<a className={s.link}  target='_blank' rel='noopener noreferrer'
+						<a className={s.link}
+							 target='_blank'
+							 rel='noopener noreferrer'
 							 href="https://sphinx7777.github.io/reactTypeScript">
-							<img className={s.linkImg} src={organizer} alt="ToDo"/>
-							<span className={s.linkTitle}>ToDo</span>
+							<img className={s.linkImg}
+									 src={organizer}
+									 alt="ToDo"/>
+							<span className={s.linkTitle}>
+								ToDo
+							</span>
 						</a>
-						<a className={s.link} target='_blank' rel='noopener noreferrer'
-										 href="https://sphinx7777.github.io/SocialNetvork">
-							<img className={s.linkImg} src={socialnetwork} alt="Social network"/>
-							<span className={s.linkTitle}>Social_Network</span>
+						<a className={s.link}
+							 target='_blank'
+							 rel='noopener noreferrer'
+							 href="https://sphinx7777.github.io/SocialNetvork">
+							<img className={s.linkImg}
+									 src={socialnetwork}
+									 alt="Social network"/>
+							<span className={s.linkTitle}>
+								Social_Network
+							</span>
 						</a>
-						<a className={s.link} target='_blank' rel='noopener noreferrer'
-									 href="https://github.com/Sphinx7777?tab=repositories">
-						<img className={s.linkImg} src={git} alt="Гитхаб"/>
-						<span className={s.linkTitle}>Git</span>
-					</a>
+						<a className={s.link}
+							 target='_blank'
+							 rel='noopener noreferrer'
+							 href="https://github.com/Sphinx7777?tab=repositories">
+							<img className={s.linkImg}
+									 src={git}
+									 alt="Гитхаб"/>
+							<span className={s.linkTitle}>
+							Git
+						</span>
+						</a>
 					</div>
 				</div>
 				<div>
-					<a className={s.linkPost} target='_blank' rel='noopener noreferrer'
-									 href="mailto:Spamoglot13@gmail.com">
-						<img className={s.linkImg} src={mail} alt="Social network"/>
-						<span className={s.linkTitle}>Spamoglot13@gmail.com</span>
+					<a className={s.linkPost}
+						 target='_blank'
+						 rel='noopener noreferrer'
+						 href="mailto:Spamoglot13@gmail.com">
+						<img className={s.linkImg}
+								 src={mail}
+								 alt="Social network"/>
+						<span className={s.linkTitle}>
+							Spamoglot13@gmail.com
+						</span>
 					</a>
 				</div>
 			</footer>
-
 		</div>
 	)
 };

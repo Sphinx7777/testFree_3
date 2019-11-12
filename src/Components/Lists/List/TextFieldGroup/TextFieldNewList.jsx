@@ -8,14 +8,19 @@ export const TextFieldNewList = ({dispatch}) => {
 	const onChange = (event) => {
 		setDescription(event.target.value)
 	};
+	const addNewList = () => dispatch({type: 'addList', name: description});
 
 
 	return (
 		<div>
-			<input type="text" maxLength='20' onChange={onChange} placeholder='New list'/>
-			<button disabled={!description}
-							onClick={() => dispatch({type: 'addList',
-								name:description})}>
+			<input
+				type="text"
+				maxLength='20'
+				onChange={onChange}
+				placeholder='New list'/>
+			<button
+				disabled={!description}
+				onClick={addNewList}>
 				Add
 			</button>
 		</div>

@@ -1,30 +1,50 @@
 .wrap {
 	display: inline-block;
-	margin: 5rem auto;
+	margin: 1rem auto;
 	text-align: center;
 
+	.list {
 
-	.up, .down, .add, .remove {
-		margin: .3rem;
-	}
+		margin-top: 2rem;
+		.listName {
+			position: relative;
 
-	.sublist {
-		position: relative;
-
-
-		.showDesc {
-			text-align: center;
-			position: absolute;
-			right: 0;
-			background-color: white;
-			padding: 0.5rem 0.5rem 0 0.5rem;
-			border: 1px solid black;
-			border-radius: 0.4rem;
-			width: 100%;
-			z-index: 5;
-
+			.newTitleList {
+				position: absolute;
+				bottom: 1.5rem;
+				left: 0;
+				display: flex;
+			}
 		}
+
+
+
+
+		.up, .down, .add, .remove {
+			margin: .3rem;
+		}
+
+		.sublist {
+			position: relative;
+
+
+			.showDesc {
+				text-align: center;
+				position: absolute;
+				right: 0;
+				background-color: white;
+				padding: 0.5rem 0.5rem 0 0.5rem;
+				border: 1px solid black;
+				border-radius: 0.4rem;
+				width: 100%;
+				z-index: 5;
+
+			}
+		}
+
 	}
+
+
 
 }
 

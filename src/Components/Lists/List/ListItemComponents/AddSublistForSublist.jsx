@@ -3,21 +3,35 @@ import {ButtonsGroupAddSublist} from "../ButtonsGroup/ButtonsGroupAddSublist";
 import {Contacts} from "../Contacts";
 
 
-export const AddSublistForSublist = ({listSub, dispatch, subSub,onSubmit}) => {
+export const AddSublistForSublist = ({listSub, dispatch, subSub, onSubmit}) => {
+
+	const toggleSublistValues = () => {
+		dispatch(
+			{
+				type: 'toggleSublistValues',
+				payload: {id: listSub.id, subId: subSub.id}
+			})
+	};
 
 	return (
 		<li>
-			<span title='DoubleClick for edit mode'
-				onDoubleClick={() => dispatch({type: 'toggleSublistValues',payload:{id: listSub.id,subId: subSub.id}})}>
+			<span
+				title='DoubleClick for edit mode'
+				onDoubleClick={toggleSublistValues}>
 				{subSub.name}
 			</span>
 			{
 				subSub.valuesShow &&
 				<Contacts {...
-				{onSubmit,name:subSub.name,id: listSub.id,
-					subId:subSub.id,phone:subSub.values.phone,email:subSub.values.email
-				}}
-			/>
+					{
+						onSubmit,
+						name: subSub.name,
+						id: listSub.id,
+						subId: subSub.id,
+						phone: subSub.values.phone,
+						email: subSub.values.email
+					}}
+				/>
 			}
 			<ButtonsGroupAddSublist {...
 				{

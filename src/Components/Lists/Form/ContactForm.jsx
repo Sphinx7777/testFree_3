@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import s from './ContactForm.module.scss';
 
-export const ContactForm = ({setToggleFormShow, onSubmit, values,id,subId}) => {
+export const ContactForm = ({setToggleFormShow, onSubmit, values, id, subId}) => {
 
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [phone, setPhone] = useState('');
 
 	const formData = {
-		name, email, phone,id,subId
+		name, email, phone, id, subId
 	};
 
 	const submit = (e) => {
@@ -29,7 +29,8 @@ export const ContactForm = ({setToggleFormShow, onSubmit, values,id,subId}) => {
 	};
 
 	return (
-		<div className={s.settingsFormWrapper} onDoubleClick={(event) => event.stopPropagation()}>
+		<div className={s.settingsFormWrapper}
+				 onDoubleClick={(event) => event.stopPropagation()}>
 			<form onSubmit={submit}>
 				<div className={s.settingsForm}>
 					<input
@@ -57,7 +58,8 @@ export const ContactForm = ({setToggleFormShow, onSubmit, values,id,subId}) => {
 						maxLength='20'
 					/>
 					<div className={s.sendBtnGroup}>
-						<button className={s.sendBtn} onClick={()=>setTimeout(setToggleFormShow,0)} type="submit">
+						<button className={s.sendBtn}
+										onClick={() => setTimeout(setToggleFormShow, 0)} type="submit">
 							To send
 						</button>
 						<button className={s.sendBtn} type="reset">
