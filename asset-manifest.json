@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/testFree_3/static/css/main.e3706d04.chunk.css",
-    "main.js": "/testFree_3/static/js/main.531fd3db.chunk.js",
-    "main.js.map": "/testFree_3/static/js/main.531fd3db.chunk.js.map",
+    "main.css": "/testFree_3/static/css/main.25b22f6e.chunk.css",
+    "main.js": "/testFree_3/static/js/main.2bdb07e9.chunk.js",
+    "main.js.map": "/testFree_3/static/js/main.2bdb07e9.chunk.js.map",
     "runtime-main.js": "/testFree_3/static/js/runtime-main.3ae8c860.js",
     "runtime-main.js.map": "/testFree_3/static/js/runtime-main.3ae8c860.js.map",
     "static/js/2.e97cfda1.chunk.js": "/testFree_3/static/js/2.e97cfda1.chunk.js",
     "static/js/2.e97cfda1.chunk.js.map": "/testFree_3/static/js/2.e97cfda1.chunk.js.map",
     "index.html": "/testFree_3/index.html",
-    "precache-manifest.87f421713935c57121faa719d3366898.js": "/testFree_3/precache-manifest.87f421713935c57121faa719d3366898.js",
+    "precache-manifest.b363bf898eef9ff75457fe42dc4b64bc.js": "/testFree_3/precache-manifest.b363bf898eef9ff75457fe42dc4b64bc.js",
     "service-worker.js": "/testFree_3/service-worker.js",
-    "static/css/main.e3706d04.chunk.css.map": "/testFree_3/static/css/main.e3706d04.chunk.css.map",
+    "static/css/main.25b22f6e.chunk.css.map": "/testFree_3/static/css/main.25b22f6e.chunk.css.map",
     "static/media/git.ico": "/testFree_3/static/media/git.2bcad980.ico",
     "static/media/mail.ico": "/testFree_3/static/media/mail.a9b30fd8.ico",
     "static/media/organizer.png": "/testFree_3/static/media/organizer.87c1219c.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.3ae8c860.js",
     "static/js/2.e97cfda1.chunk.js",
-    "static/css/main.e3706d04.chunk.css",
-    "static/js/main.531fd3db.chunk.js"
+    "static/css/main.25b22f6e.chunk.css",
+    "static/js/main.2bdb07e9.chunk.js"
   ]
 }
