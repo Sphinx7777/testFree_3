@@ -12,7 +12,6 @@ export const ButtonsGroupRemoveList = ({name, id, dispatch}) => {
 
 	return (
 		<>
-
 			<button className={s.add} onClick={addList}>
 				Add Sublist
 			</button>
