@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import s from '../Lists.module.scss';
 import {ButtonsGroupRemoveSublist} from "./ButtonsGroup/ButtonsGroupRemoveSublist";
 import {ButtonsGroupRemoveList} from "./ButtonsGroup/ButtonsGroupRemoveList";
@@ -52,7 +52,7 @@ export const ListItem = ({listsArr, dispatch}) => {
 						/>
 						<ul>
 							{
-								list.sublist && list.sublist.map(listSub =>
+								list.sublist && list.sublist.map((listSub,index) =>
 
 									!listSub.sublist || !listSub.sublist.length || !listSub.sublistShow
 										?
@@ -95,7 +95,7 @@ export const ListItem = ({listsArr, dispatch}) => {
 											/>
 											<ul>
 												{
-													listSub.sublist && listSub.sublist.map(subSub =>
+													listSub.sublist && listSub.sublist.map((subSub,index) =>
 														<AddSublistForSublist key={subSub.id} {...
 															{
 																listSub, subSub, dispatch, onSubmit

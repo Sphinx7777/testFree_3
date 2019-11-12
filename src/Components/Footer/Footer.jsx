@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './Header.module.scss'
 import organizer from "../images/organizer.png";
-import socialnetwork from "../images/socialnetwork.png";
+import socialNetwork from "../images/socialNetwork.png";
 import git from "../images/git.ico";
 import mail from "../images/mail.ico";
 import test from "../images/test.ico";
@@ -12,12 +12,13 @@ export const Footer = () => {
 	return (
 		<div className={s.footerWrapper}>
 			<div style={{textAlign: 'left', paddingLeft: '10%'}}>
-				Сделано отрывками что успел без редакса на хуках : <br/>
+				Сделано отрывками, что успел, без редакса на хуках : <br/>
 				Все add Sublist и Remove работают (назначение кнопки 'remove Sublist' я не понял и убрал) <br/>
 				Удаление текущих и добавление новых подСписков <br/>
 				Все текстовые поля добавления новых подСписков и нового списка<br/>
 				Удаление текущих и содание новых списков <br/>
 				DoubleClick на именах всех Sublist открывает и закрывает описание <br/>
+				DoubleClick на названии списка rename <br/>
 				DoubleClick на описании редактирование описания(валидацию не делал, может в конце) <br/>
 				Каждое движение сохраняется в localStorage <br/>
 				Осталось только сделать изменение порядка элементов списка <br/>
@@ -54,7 +55,7 @@ export const Footer = () => {
 							 rel='noopener noreferrer'
 							 href="https://sphinx7777.github.io/SocialNetvork">
 							<img className={s.linkImg}
-									 src={socialnetwork}
+									 src={socialNetwork}
 									 alt="Social network"/>
 							<span className={s.linkTitle}>
 								Social_Network

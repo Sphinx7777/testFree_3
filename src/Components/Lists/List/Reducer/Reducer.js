@@ -118,7 +118,7 @@ export const reducer = (state, action) => {
 								if (ss.id === action.payload.subId) {
 									ss.valuesShow = !ss.valuesShow;
 									setChangeToLocaleStorage(state.ListsWrap);
-								}
+								}return ss;
 							});
 							return sub;
 						}
@@ -177,7 +177,7 @@ export const reducer = (state, action) => {
 									ss.values.phone = action.phone;
 									ss.values.email = action.email;
 									setChangeToLocaleStorage(state.ListsWrap);
-								}
+								}return ss;
 							});
 							return sub;
 						}
