@@ -3,7 +3,10 @@ import {ButtonsGroupAddSublist} from "../ButtonsGroup/ButtonsGroupAddSublist";
 import {Contacts} from "../Contacts";
 
 
-export const AddSublistForSublist = ({listSub, dispatch, subSub, onSubmit}) => {
+export const AddSublistForSublist = (
+	{
+		listSub, dispatch, subSub, onSubmit, index, arrLength
+	}) => {
 
 	const toggleSublistValues = () => {
 		dispatch(
@@ -35,6 +38,8 @@ export const AddSublistForSublist = ({listSub, dispatch, subSub, onSubmit}) => {
 			}
 			<ButtonsGroupAddSublist {...
 				{
+					arrLength,
+					index,
 					dispatch,
 					name: subSub.name,
 					id: listSub.id, subId: subSub.id

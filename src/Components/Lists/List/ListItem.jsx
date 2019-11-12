@@ -59,6 +59,8 @@ export const ListItem = ({listsArr, dispatch}) => {
 										<AddSublist
 											key={listSub.id} {...
 											{
+												arrLength:list.sublist.length,
+												index,
 												phone: listSub.values.phone,
 												email: listSub.values.email,
 												listSub,
@@ -88,6 +90,8 @@ export const ListItem = ({listsArr, dispatch}) => {
 											}
 											<ButtonsGroupRemoveSublist {...
 												{
+													arrLength:list.sublist.length,
+													index,
 													dispatch,
 													name: listSub.name,
 													id: listSub.id
@@ -98,7 +102,12 @@ export const ListItem = ({listsArr, dispatch}) => {
 													listSub.sublist && listSub.sublist.map((subSub,index) =>
 														<AddSublistForSublist key={subSub.id} {...
 															{
-																listSub, subSub, dispatch, onSubmit
+																listSub,
+																subSub,
+																dispatch,
+																onSubmit,
+																index,
+																arrLength:listSub.sublist.length,
 															}}
 														/>)}
 												<TextFieldNewSublistInSublist {...

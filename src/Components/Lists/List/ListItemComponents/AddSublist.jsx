@@ -4,7 +4,10 @@ import {Contacts} from "../Contacts";
 import s from '../../Lists.module.scss'
 
 
-export const AddSublist = ({listSub, dispatch, onSubmit, phone, email}) => {
+export const AddSublist = (
+	{
+		listSub, dispatch, onSubmit, phone, email, index, arrLength
+	}) => {
 
 	const toggleValue = () => {
 		dispatch({type: 'toggleValues', id: listSub.id})
@@ -28,6 +31,8 @@ export const AddSublist = ({listSub, dispatch, onSubmit, phone, email}) => {
 				}}/>}
 			<ButtonsGroupRemoveSublist {...
 				{
+					arrLength,
+					index,
 					name: listSub.name,
 					id: listSub.id,
 					dispatch
