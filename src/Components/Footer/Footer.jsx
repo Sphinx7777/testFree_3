@@ -11,18 +11,7 @@ export const Footer = () => {
 
 	return (
 		<div className={s.footerWrapper}>
-			<div style={{textAlign: 'left', paddingLeft: '10%'}}>
-				Сделано отрывками, что успел, без редакса на хуках : <br/>
-				Все add Sublist и Remove работают (назначение кнопки 'remove Sublist' я не понял и убрал) <br/>
-				Удаление текущих и добавление новых подСписков <br/>
-				Все текстовые поля добавления новых подСписков и нового списка<br/>
-				Удаление текущих и содание новых списков <br/>
-				DoubleClick на именах всех Sublist открывает и закрывает описание <br/>
-				DoubleClick на названии списка rename <br/>
-				DoubleClick на описании редактирование описания(валидацию не делал, может в конце) <br/>
-				Каждое движение сохраняется в localStorage <br/>
-				Осталось только сделать изменение порядка элементов списка <br/>
-			</div>
+			<div>DoubleClick для редактирования имен и добавления информации</div>
 			<footer className={s.footer}>
 				<div>
 					<a className={s.link}
